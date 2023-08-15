@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Delete User{% endblock %}
+
+{% block content_title %}Delete User{% endblock %}
+
+{% block content %}
+    <p>Are you sure you want to delete your account?</p>
+    <form method="POST">
+        <button type="submit" class="btn btn-danger">Delete Account</button>
+        <a href="{{ url_for('user_profile', username=session['username']) }}" class="btn btn-secondary">Cancel</a>
+    </form>
+{% endblock %}

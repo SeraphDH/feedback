@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content_title %}Welcome to Your App!{% endblock %}
+
+{% block content %}
+    <p>This is a simple application where you can register, log in, and view your profile.</p>
+    <p>Choose an option below:</p>
+    <div class="row">
+        <div class="col">
+            {% if 'username' in session %}
+                <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+            {% else %}
+                <a href="{{ url_for('register') }}" class="btn btn-primary">Register</a>
+            {% endif %}
+        </div>
+        <div class="col">
+            {% if 'username' in session %}
+                <a href="{{ url_for('user_profile', username=session['username']) }}" class="btn btn-secondary">Profile</a>
+            {% else %}
+                <a href="{{ url_for('login') }}" class="btn btn-secondary">Login</a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

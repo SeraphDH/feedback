@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Add New Feedback</h1>
+    <form method="POST">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" name="title" required>
+        </div>
+        <div class="form-group">
+            <label for="content">Content</label>
+            <textarea class="form-control" id="content" name="content" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Feedback</button>
+        <a href="{{ url_for('user_profile', username=session['username']) }}" class="btn btn-secondary">Cancel</a>
+    </form>
+{% endblock %}
